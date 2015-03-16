@@ -8,6 +8,7 @@ end
 
 gem 'rails', '4.2.0'
 gem 'pg'
+gem 'thin'
 
 group :development, :test do
   gem 'byebug'
