@@ -12,6 +12,14 @@ class RantsController < ApplicationController
     end
   end
 
+  def update
+    rant = Rant.find(params[:id])
+
+    if rant.update(rant_params)
+      render json: rant
+    end
+  end
+
   private
     def rant_params
       params.require(:rant).permit(:title, :body)
