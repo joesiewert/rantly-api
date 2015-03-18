@@ -20,6 +20,14 @@ class RantsController < ApplicationController
     end
   end
 
+  def destroy
+    rant = Rant.find(params[:id])
+
+    if rant.destroy
+      head :no_content
+    end
+  end
+
   private
     def rant_params
       params.require(:rant).permit(:title, :body)
