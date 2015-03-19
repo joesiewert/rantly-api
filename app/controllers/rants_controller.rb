@@ -1,7 +1,11 @@
 class RantsController < ApplicationController
 
   def index
-    render json: Rant.all
+    if params[:search]
+      render json: Rant.where('title LIKE ? OR body LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      render json: Rant.all
+    end
   end
 
   def create
