@@ -2,7 +2,8 @@ class RantsController < ApplicationController
 
   def index
     if params[:search]
-      render json: Rant.where('title LIKE ? OR body LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%")
+      search = params[:search].downcase
+      render json: Rant.where('lower(title) LIKE ? OR lower(body) LIKE ?', "%#{search}%", "%#{search}%")
     else
       render json: Rant.all
     end
