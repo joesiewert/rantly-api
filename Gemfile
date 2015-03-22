@@ -11,6 +11,7 @@ gem 'pg'
 gem 'thin'
 gem 'active_model_serializers', '~> 0.9.3'
 gem 'rack-cors', require: 'rack/cors'
+gem 'devise', '~> 3.4.1'
 
 group :development, :test do
   gem 'byebug'
