@@ -1,5 +1,9 @@
 class UsersController < Devise::RegistrationsController
 
+  def index
+    render json: User.all
+  end
+
   def create
     user = User.new(user_params)
 
