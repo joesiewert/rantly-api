@@ -5,6 +5,8 @@ class UsersController < Devise::RegistrationsController
 
     if user.save
       render json: user
+    else
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
