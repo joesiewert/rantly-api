@@ -1,3 +1,3 @@
 class RantSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :created_at
+  attributes :id, :title, :body, :user_id, :created_at
 end
