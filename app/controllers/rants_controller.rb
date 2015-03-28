@@ -14,6 +14,8 @@ class RantsController < ApplicationController
 
     if rant.save
       render json: rant
+    else
+      render json: rant.errors, status: :unprocessable_entity
     end
   end
 
@@ -22,6 +24,8 @@ class RantsController < ApplicationController
 
     if rant.update(rant_params)
       render json: rant
+    else
+      render json: rant.errors, status: :unprocessable_entity
     end
   end
 
@@ -30,6 +34,8 @@ class RantsController < ApplicationController
 
     if rant.destroy
       head :no_content
+    else
+      render json: rant.errors, status: :unprocessable_entity
     end
   end
 
