@@ -4,6 +4,7 @@ class SessionsController < Devise::SessionsController
   def create
     super do |user|
       data = {
+        id: user.id,
         email: user.email,
         token: user.authentication_token
       }
