@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save :ensure_authentication_token
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   has_many :rants
 
   def ensure_authentication_token
